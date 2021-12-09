@@ -8,8 +8,11 @@ dependencies {
     compileOnly("com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:master-SNAPSHOT:dev") {
         transitive = false
     }
+    compileOnly("com.github.GTNewHorizons:Railcraft:master-SNAPSHOT:api") {
+        transitive = false
+    }
     compileOnly("com.mod-buildcraft:buildcraft:7.1.23:dev") {
         transitive = false
     }
+    compileOnly files("dependencies/Pam's HarvestCraft 1.7.10La.jar")
 }
-
