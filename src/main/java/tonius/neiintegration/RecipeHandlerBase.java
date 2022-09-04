@@ -133,7 +133,7 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
     public void loadUsageRecipes(FluidStack ingredient) {}
 
     @Override
-    public List<String> handleTooltip(GuiRecipe guiRecipe, List<String> currenttip, int recipe) {
+    public List<String> handleTooltip(GuiRecipe<?> guiRecipe, List<String> currenttip, int recipe) {
         super.handleTooltip(guiRecipe, currenttip, recipe);
         CachedBaseRecipe crecipe = (CachedBaseRecipe) this.arecipes.get(recipe);
         if (GuiContainerManager.shouldShowTooltip(guiRecipe)) {
@@ -150,7 +150,7 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
 
     @Override
     public List<String> handleItemTooltip(
-            GuiRecipe guiRecipe, ItemStack itemStack, List<String> currenttip, int recipe) {
+        GuiRecipe<?> guiRecipe, ItemStack itemStack, List<String> currenttip, int recipe) {
         super.handleItemTooltip(guiRecipe, itemStack, currenttip, recipe);
         CachedBaseRecipe crecipe = (CachedBaseRecipe) this.arecipes.get(recipe);
         Point mouse = GuiDraw.getMousePosition();
