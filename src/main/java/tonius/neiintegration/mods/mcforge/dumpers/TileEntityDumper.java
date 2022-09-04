@@ -1,32 +1,32 @@
 package tonius.neiintegration.mods.mcforge.dumpers;
 
+import codechicken.nei.config.DataDumper;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
 import net.minecraft.tileentity.TileEntity;
-import codechicken.nei.config.DataDumper;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class TileEntityDumper extends DataDumper {
-    
+
     public TileEntityDumper() {
         super("tools.dump.neiintegration.tileentity");
     }
-    
+
     @Override
     public String[] header() {
-        return new String[] { "Class Name", "Registered Name" };
+        return new String[] {"Class Name", "Registered Name"};
     }
-    
+
     @Override
     public Iterable<String[]> dump(int mode) {
         List<String[]> list = new LinkedList<String[]>();
-        
-        Map<Class, String> classToNameMap = ReflectionHelper.getPrivateValue(TileEntity.class, null, "field_145853_j", "classToNameMap");
+
+        Map<Class, String> classToNameMap =
+                ReflectionHelper.getPrivateValue(TileEntity.class, null, "field_145853_j", "classToNameMap");
         List<Class> classes = new ArrayList<Class>();
         classes.addAll(classToNameMap.keySet());
         Collections.sort(classes, new Comparator<Class>() {
@@ -38,19 +38,18 @@ public class TileEntityDumper extends DataDumper {
                 return o1.getName().compareTo(o2.getName());
             }
         });
-        
+
         for (Class clazz : classes) {
             if (clazz != null) {
-                list.add(new String[] { clazz.getName(), classToNameMap.get(clazz) });
+                list.add(new String[] {clazz.getName(), classToNameMap.get(clazz)});
             }
         }
-        
+
         return list;
     }
-    
+
     @Override
     public int modeCount() {
         return 1;
     }
-    
 }

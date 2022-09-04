@@ -5,27 +5,26 @@ import tonius.neiintegration.IntegrationBase;
 import tonius.neiintegration.mods.mcforge.dumpers.MCForgeDumpers;
 
 public class MCForgeIntegration extends IntegrationBase {
-    
+
     public MCForgeIntegration() {
         MinecraftForge.EVENT_BUS.register(new MCForgeTooltipHandler());
     }
-    
+
     @Override
     public String getName() {
         return "Minecraft / Forge";
     }
-    
+
     @Override
     public boolean isValid() {
         return true;
     }
-    
+
     @Override
     public void loadConfig() {
         this.registerHandler(new RecipeHandlerFluidRegistry());
         this.registerHandler(new RecipeHandlerOreDictionary());
-        
+
         MCForgeDumpers.loadConfig();
     }
-    
 }

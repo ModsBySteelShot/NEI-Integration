@@ -1,17 +1,5 @@
 package tonius.neiintegration;
 
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.fluids.FluidStack;
-
-import org.lwjgl.opengl.GL11;
-
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIClientConfig;
 import codechicken.nei.NEIServerUtils;
@@ -19,15 +7,23 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.guihook.GuiContainerManager;
 import codechicken.nei.recipe.GuiRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.FluidStack;
+import org.lwjgl.opengl.GL11;
 
 public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements IRecipeHandler {
-    
+
     @Override
-    public void prepare() {
-    }
-    
+    public void prepare() {}
+
     public abstract class CachedBaseRecipe extends CachedRecipe {
-        
+
         public List<PositionedFluidTank> getFluidTanks() {
             List<PositionedFluidTank> tanks = new ArrayList<PositionedFluidTank>();
             PositionedFluidTank tank = this.getFluidTank();
@@ -36,11 +32,11 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
             }
             return tanks;
         }
-        
+
         public PositionedFluidTank getFluidTank() {
             return null;
         }
-        
+
         public void setIngredientPermutationNBT(Collection<PositionedStack> ingredients, ItemStack ingredient) {
             for (PositionedStack stack : ingredients) {
                 for (int i = 0; i < stack.items.length; i++) {
@@ -48,38 +44,38 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
                         stack.item = stack.items[i];
                         stack.item.setItemDamage(ingredient.getItemDamage());
                         if (ingredient.hasTagCompound()) {
-                            stack.item.setTagCompound((NBTTagCompound) ingredient.getTagCompound().copy());
+                            stack.item.setTagCompound(
+                                    (NBTTagCompound) ingredient.getTagCompound().copy());
                         }
-                        stack.items = new ItemStack[] { stack.item };
+                        stack.items = new ItemStack[] {stack.item};
                         stack.setPermutationToRender(0);
                         break;
                     }
                 }
             }
         }
-        
     }
-    
+
     public abstract String getRecipeID();
-    
+
     public String getRecipeSubName() {
         return null;
     }
-    
+
     public void changeToGuiTexture() {
         GuiDraw.changeTexture(this.getGuiTexture());
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
-    
+
     public void changeToOverlayTexture() {
         GuiDraw.changeTexture("neiintegration:textures/overlays.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
     }
-    
+
     public void addTransferRect(int x, int y, int width, int height) {
         this.transferRects.add(new RecipeTransferRect(new Rectangle(x, y, width, height), this.getRecipeID()));
     }
-    
+
     @Override
     public void drawForeground(int recipe) {
         super.drawForeground(recipe);
@@ -89,10 +85,12 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
         }
         this.changeToGuiTexture();
     }
-    
+
     @Override
     public void loadCraftingRecipes(String outputId, Object... results) {
-        if (outputId.equals("liquid") && results[0] instanceof FluidStack && ((FluidStack) results[0]).getFluid() != null) {
+        if (outputId.equals("liquid")
+                && results[0] instanceof FluidStack
+                && ((FluidStack) results[0]).getFluid() != null) {
             this.loadCraftingRecipes((FluidStack) results[0]);
         } else if (outputId.equals(this.getRecipeID())) {
             this.loadAllRecipes();
@@ -100,10 +98,9 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
             super.loadCraftingRecipes(outputId, results);
         }
     }
-    
-    public void loadAllRecipes() {
-    }
-    
+
+    public void loadAllRecipes() {}
+
     @Override
     public void loadCraftingRecipes(ItemStack result) {
         FluidStack fluid = Utils.getFluidStack(result);
@@ -111,19 +108,20 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
             this.loadCraftingRecipes(fluid);
         }
     }
-    
-    public void loadCraftingRecipes(FluidStack result) {
-    }
-    
+
+    public void loadCraftingRecipes(FluidStack result) {}
+
     @Override
     public void loadUsageRecipes(String inputId, Object... ingredients) {
-        if (inputId.equals("liquid") && ingredients[0] instanceof FluidStack && ((FluidStack) ingredients[0]).getFluid() != null) {
+        if (inputId.equals("liquid")
+                && ingredients[0] instanceof FluidStack
+                && ((FluidStack) ingredients[0]).getFluid() != null) {
             this.loadUsageRecipes((FluidStack) ingredients[0]);
         } else {
             super.loadUsageRecipes(inputId, ingredients);
         }
     }
-    
+
     @Override
     public void loadUsageRecipes(ItemStack ingred) {
         FluidStack fluid = Utils.getFluidStack(ingred);
@@ -131,10 +129,9 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
             this.loadUsageRecipes(fluid);
         }
     }
-    
-    public void loadUsageRecipes(FluidStack ingredient) {
-    }
-    
+
+    public void loadUsageRecipes(FluidStack ingredient) {}
+
     @Override
     public List<String> handleTooltip(GuiRecipe guiRecipe, List<String> currenttip, int recipe) {
         super.handleTooltip(guiRecipe, currenttip, recipe);
@@ -142,26 +139,31 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
         if (GuiContainerManager.shouldShowTooltip(guiRecipe)) {
             Point mouse = GuiDraw.getMousePosition();
             Point offset = guiRecipe.getRecipePosition(recipe);
-            Point relMouse = new Point(mouse.x - (guiRecipe.width - 176) / 2 - offset.x, mouse.y - (guiRecipe.height - 166) / 2 - offset.y);
-            
+            Point relMouse = new Point(
+                    mouse.x - (guiRecipe.width - 176) / 2 - offset.x,
+                    mouse.y - (guiRecipe.height - 166) / 2 - offset.y);
+
             currenttip = this.provideTooltip(guiRecipe, currenttip, crecipe, relMouse);
         }
         return currenttip;
     }
-    
+
     @Override
-    public List<String> handleItemTooltip(GuiRecipe guiRecipe, ItemStack itemStack, List<String> currenttip, int recipe) {
+    public List<String> handleItemTooltip(
+            GuiRecipe guiRecipe, ItemStack itemStack, List<String> currenttip, int recipe) {
         super.handleItemTooltip(guiRecipe, itemStack, currenttip, recipe);
         CachedBaseRecipe crecipe = (CachedBaseRecipe) this.arecipes.get(recipe);
         Point mouse = GuiDraw.getMousePosition();
         Point offset = guiRecipe.getRecipePosition(recipe);
-        Point relMouse = new Point(mouse.x - (guiRecipe.width - 176) / 2 - offset.x, mouse.y - (guiRecipe.height - 166) / 2 - offset.y);
-        
+        Point relMouse = new Point(
+                mouse.x - (guiRecipe.width - 176) / 2 - offset.x, mouse.y - (guiRecipe.height - 166) / 2 - offset.y);
+
         currenttip = this.provideItemTooltip(guiRecipe, itemStack, currenttip, crecipe, relMouse);
         return currenttip;
     }
-    
-    public List<String> provideTooltip(GuiRecipe guiRecipe, List<String> currenttip, CachedBaseRecipe crecipe, Point relMouse) {
+
+    public List<String> provideTooltip(
+            GuiRecipe guiRecipe, List<String> currenttip, CachedBaseRecipe crecipe, Point relMouse) {
         if (crecipe.getFluidTanks() != null) {
             for (PositionedFluidTank tank : crecipe.getFluidTanks()) {
                 if (tank.position.contains(relMouse)) {
@@ -171,25 +173,33 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
         }
         return currenttip;
     }
-    
-    public List<String> provideItemTooltip(GuiRecipe guiRecipe, ItemStack itemStack, List<String> currenttip, CachedBaseRecipe crecipe, Point relMouse) {
+
+    public List<String> provideItemTooltip(
+            GuiRecipe guiRecipe,
+            ItemStack itemStack,
+            List<String> currenttip,
+            CachedBaseRecipe crecipe,
+            Point relMouse) {
         for (PositionedStack stack : crecipe.getIngredients()) {
-            if (stack instanceof PositionedStackAdv && ((PositionedStackAdv) stack).getRect().contains(relMouse)) {
+            if (stack instanceof PositionedStackAdv
+                    && ((PositionedStackAdv) stack).getRect().contains(relMouse)) {
                 currenttip = ((PositionedStackAdv) stack).handleTooltip(guiRecipe, currenttip);
             }
         }
         for (PositionedStack stack : crecipe.getOtherStacks()) {
-            if (stack instanceof PositionedStackAdv && ((PositionedStackAdv) stack).getRect().contains(relMouse)) {
+            if (stack instanceof PositionedStackAdv
+                    && ((PositionedStackAdv) stack).getRect().contains(relMouse)) {
                 currenttip = ((PositionedStackAdv) stack).handleTooltip(guiRecipe, currenttip);
             }
         }
         PositionedStack stack = crecipe.getResult();
-        if (stack instanceof PositionedStackAdv && ((PositionedStackAdv) stack).getRect().contains(relMouse)) {
+        if (stack instanceof PositionedStackAdv
+                && ((PositionedStackAdv) stack).getRect().contains(relMouse)) {
             currenttip = ((PositionedStackAdv) stack).handleTooltip(guiRecipe, currenttip);
         }
         return currenttip;
     }
-    
+
     @Override
     public boolean keyTyped(GuiRecipe gui, char keyChar, int keyCode, int recipe) {
         if (keyCode == NEIClientConfig.getKeyBinding("gui.recipe")) {
@@ -203,7 +213,7 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
         }
         return super.keyTyped(gui, keyChar, keyCode, recipe);
     }
-    
+
     @Override
     public boolean mouseClicked(GuiRecipe gui, int button, int recipe) {
         if (button == 0) {
@@ -217,13 +227,15 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
         }
         return super.mouseClicked(gui, button, recipe);
     }
-    
+
     protected boolean transferFluidTank(GuiRecipe guiRecipe, int recipe, boolean usage) {
         CachedBaseRecipe crecipe = (CachedBaseRecipe) this.arecipes.get(recipe);
         Point mousepos = GuiDraw.getMousePosition();
         Point offset = guiRecipe.getRecipePosition(recipe);
-        Point relMouse = new Point(mousepos.x - (guiRecipe.width - 176) / 2 - offset.x, mousepos.y - (guiRecipe.height - 166) / 2 - offset.y);
-        
+        Point relMouse = new Point(
+                mousepos.x - (guiRecipe.width - 176) / 2 - offset.x,
+                mousepos.y - (guiRecipe.height - 166) / 2 - offset.y);
+
         if (crecipe.getFluidTanks() != null) {
             for (PositionedFluidTank tank : crecipe.getFluidTanks()) {
                 if (tank.position.contains(relMouse)) {
@@ -231,10 +243,10 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
                 }
             }
         }
-        
+
         return false;
     }
-    
+
     public void drawFluidTanks(int recipe) {
         CachedBaseRecipe crecipe = (CachedBaseRecipe) this.arecipes.get(recipe);
         if (crecipe.getFluidTanks() != null) {
@@ -243,5 +255,4 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
             }
         }
     }
-    
 }

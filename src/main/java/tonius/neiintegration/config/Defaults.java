@@ -1,10 +1,10 @@
 package tonius.neiintegration.config;
 
 public abstract class Defaults {
-    
+
     public static final boolean handlerFluidRegistry = false;
     public static final boolean handlerOreDictionary = false;
-    
+
     public static final boolean tooltipUnlocalizedName = false;
     public static final boolean tooltipUnlocalizedNameShift = false;
     public static final boolean tooltipUnlocalizedNameAdvanced = false;
@@ -23,5 +23,4 @@ public abstract class Defaults {
     public static final boolean tooltipFluidRegInfo = false;
     public static final boolean tooltipFluidRegInfoShift = false;
     public static final boolean tooltipFluidRegInfoAdvanced = false;
-    
 }

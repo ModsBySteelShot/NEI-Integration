@@ -3,7 +3,7 @@ package tonius.neiintegration;
 import codechicken.nei.api.IConfigureNEI;
 
 public class NEIConfig implements IConfigureNEI {
-    
+
     @Override
     public void loadConfig() {
         for (IntegrationBase integration : NEIIntegration.integrations) {
@@ -13,15 +13,14 @@ public class NEIConfig implements IConfigureNEI {
             }
         }
     }
-    
+
     @Override
     public String getName() {
         return "NEI Integration";
     }
-    
+
     @Override
     public String getVersion() {
         return NEIIntegration.VERSION;
     }
-    
 }
