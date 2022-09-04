@@ -150,7 +150,7 @@ public abstract class RecipeHandlerBase extends TemplateRecipeHandler implements
 
     @Override
     public List<String> handleItemTooltip(
-        GuiRecipe<?> guiRecipe, ItemStack itemStack, List<String> currenttip, int recipe) {
+            GuiRecipe<?> guiRecipe, ItemStack itemStack, List<String> currenttip, int recipe) {
         super.handleItemTooltip(guiRecipe, itemStack, currenttip, recipe);
         CachedBaseRecipe crecipe = (CachedBaseRecipe) this.arecipes.get(recipe);
         Point mouse = GuiDraw.getMousePosition();
