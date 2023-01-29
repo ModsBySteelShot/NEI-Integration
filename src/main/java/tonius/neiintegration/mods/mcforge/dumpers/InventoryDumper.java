@@ -1,11 +1,13 @@
 package tonius.neiintegration.mods.mcforge.dumpers;
 
-import codechicken.nei.config.DataDumper;
 import java.util.LinkedList;
 import java.util.List;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import codechicken.nei.config.DataDumper;
 
 public class InventoryDumper extends DataDumper {
 
@@ -15,9 +17,8 @@ public class InventoryDumper extends DataDumper {
 
     @Override
     public String[] header() {
-        return new String[] {
-            "Slot", "Display Name", "Amount", "Damage", "Max Damage", "Item ID", "Unlocalized Name", "Item Class", "NBT"
-        };
+        return new String[] { "Slot", "Display Name", "Amount", "Damage", "Max Damage", "Item ID", "Unlocalized Name",
+                "Item Class", "NBT" };
     }
 
     @Override
@@ -47,8 +48,9 @@ public class InventoryDumper extends DataDumper {
             String itemClass = stack.getItem().getClass().getName();
             String nbt = stack.stackTagCompound != null ? stack.stackTagCompound.toString() : "";
 
-            list.add(new String[] {slot, displayName, amount, damage, maxDamage, itemID, unlocalizedName, itemClass, nbt
-            });
+            list.add(
+                    new String[] { slot, displayName, amount, damage, maxDamage, itemID, unlocalizedName, itemClass,
+                            nbt });
         }
     }
 

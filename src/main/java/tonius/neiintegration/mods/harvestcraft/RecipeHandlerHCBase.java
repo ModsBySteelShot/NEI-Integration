@@ -1,13 +1,15 @@
 package tonius.neiintegration.mods.harvestcraft;
 
-import codechicken.lib.gui.GuiDraw;
-import codechicken.nei.PositionedStack;
 import java.awt.Point;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import net.minecraft.item.ItemStack;
+
 import tonius.neiintegration.RecipeHandlerBase;
 import tonius.neiintegration.Utils;
+import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.PositionedStack;
 
 public abstract class RecipeHandlerHCBase extends RecipeHandlerBase {
 

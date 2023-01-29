@@ -1,13 +1,16 @@
 package tonius.neiintegration.mods.harvestcraft;
 
+import java.util.Map;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.item.ItemStack;
+
+import tonius.neiintegration.Utils;
 import codechicken.nei.api.API;
+
 import com.pam.harvestcraft.ChurnRecipes;
 import com.pam.harvestcraft.GuiChurn;
 import com.pam.harvestcraft.ItemRegistry;
-import java.util.Map;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.item.ItemStack;
-import tonius.neiintegration.Utils;
 
 public class RecipeHandlerChurn extends RecipeHandlerHCBase {
 

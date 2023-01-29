@@ -1,18 +1,21 @@
 package tonius.neiintegration;
 
-import codechicken.lib.gui.GuiDraw;
-import codechicken.nei.recipe.GuiCraftingRecipe;
-import codechicken.nei.recipe.GuiUsageRecipe;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.List;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTank;
+
 import org.lwjgl.opengl.GL11;
+
+import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.recipe.GuiCraftingRecipe;
+import codechicken.nei.recipe.GuiUsageRecipe;
 
 public class PositionedFluidTank {
 
@@ -35,8 +38,8 @@ public class PositionedFluidTank {
         this(tank, position, null, null);
     }
 
-    public PositionedFluidTank(
-            FluidStack fluid, int capacity, Rectangle position, String overlayTexture, Point overlayTexturePos) {
+    public PositionedFluidTank(FluidStack fluid, int capacity, Rectangle position, String overlayTexture,
+            Point overlayTexturePos) {
         this(new FluidTank(fluid != null ? fluid.copy() : null, capacity), position, overlayTexture, overlayTexturePos);
     }
 
@@ -45,17 +48,16 @@ public class PositionedFluidTank {
     }
 
     public List<String> handleTooltip(List<String> currenttip) {
-        if (this.tank == null
-                || this.tank.getFluid() == null
+        if (this.tank == null || this.tank.getFluid() == null
                 || this.tank.getFluid().getFluid() == null
                 || this.tank.getFluid().amount <= 0) {
             return currenttip;
         }
         currenttip.add(this.tank.getFluid().getLocalizedName());
         if (this.showAmount) {
-            currenttip.add(EnumChatFormatting.GRAY.toString()
-                    + this.tank.getFluid().amount
-                    + (this.perTick ? " mB/t" : " mB"));
+            currenttip.add(
+                    EnumChatFormatting.GRAY.toString() + this.tank.getFluid().amount
+                            + (this.perTick ? " mB/t" : " mB"));
         }
         return currenttip;
     }
@@ -63,11 +65,11 @@ public class PositionedFluidTank {
     public boolean transfer(boolean usage) {
         if (this.tank.getFluid() != null && this.tank.getFluid().amount > 0) {
             if (usage) {
-                if (!GuiUsageRecipe.openRecipeGui("liquid", new Object[] {this.tank.getFluid()})) {
+                if (!GuiUsageRecipe.openRecipeGui("liquid", new Object[] { this.tank.getFluid() })) {
                     return false;
                 }
             } else {
-                if (!GuiCraftingRecipe.openRecipeGui("liquid", new Object[] {this.tank.getFluid()})) {
+                if (!GuiCraftingRecipe.openRecipeGui("liquid", new Object[] { this.tank.getFluid() })) {
                     return false;
                 }
             }
@@ -77,8 +79,7 @@ public class PositionedFluidTank {
     }
 
     public void draw() {
-        if (this.tank == null
-                || this.tank.getFluid() == null
+        if (this.tank == null || this.tank.getFluid() == null
                 || this.tank.getFluid().getFluid() == null
                 || this.tank.getFluid().amount <= 0) {
             return;
@@ -119,8 +120,8 @@ public class PositionedFluidTank {
 
                 Tessellator tessellator = Tessellator.instance;
                 tessellator.startDrawingQuads();
-                tessellator.addVertexWithUV(
-                        drawX, drawY + drawHeight, 0, minU, minV + (maxV - minV) * drawHeight / 16F);
+                tessellator
+                        .addVertexWithUV(drawX, drawY + drawHeight, 0, minU, minV + (maxV - minV) * drawHeight / 16F);
                 tessellator.addVertexWithUV(
                         drawX + drawWidth,
                         drawY + drawHeight,

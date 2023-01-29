@@ -1,9 +1,9 @@
 package tonius.neiintegration.mods.mcforge;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumChatFormatting;
@@ -11,36 +11,40 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
+
 import tonius.neiintegration.Utils;
 import tonius.neiintegration.config.Config;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class MCForgeTooltipHandler {
 
     @SubscribeEvent
     public void onItemTooltip(ItemTooltipEvent evt) {
-        if (Config.tooltipUnlocalizedName
-                && (!Config.tooltipUnlocalizedNameShift || Utils.isShiftKeyDown())
+        if (Config.tooltipUnlocalizedName && (!Config.tooltipUnlocalizedNameShift || Utils.isShiftKeyDown())
                 && (!Config.tooltipUnlocalizedNameAdvanced || evt.showAdvancedItemTooltips)) {
-            evt.toolTip.add(EnumChatFormatting.DARK_GRAY + Utils.translate("tooltip.unlocalizedName") + " "
-                    + evt.itemStack.getUnlocalizedName());
+            evt.toolTip.add(
+                    EnumChatFormatting.DARK_GRAY + Utils.translate("tooltip.unlocalizedName")
+                            + " "
+                            + evt.itemStack.getUnlocalizedName());
         }
 
-        if (Config.tooltipInternalName
-                && (!Config.tooltipInternalNameShift || Utils.isShiftKeyDown())
+        if (Config.tooltipInternalName && (!Config.tooltipInternalNameShift || Utils.isShiftKeyDown())
                 && (!Config.tooltipInternalNameAdvanced || evt.showAdvancedItemTooltips)) {
-            evt.toolTip.add(EnumChatFormatting.DARK_GRAY + Utils.translate("tooltip.internalName") + " "
-                    + Item.itemRegistry.getNameForObject(evt.itemStack.getItem()));
+            evt.toolTip.add(
+                    EnumChatFormatting.DARK_GRAY + Utils.translate("tooltip.internalName")
+                            + " "
+                            + Item.itemRegistry.getNameForObject(evt.itemStack.getItem()));
         }
 
-        if (Config.tooltipMaxStack
-                && (!Config.tooltipMaxStackShift || Utils.isShiftKeyDown())
+        if (Config.tooltipMaxStack && (!Config.tooltipMaxStackShift || Utils.isShiftKeyDown())
                 && (!Config.tooltipMaxStackAdvanced || evt.showAdvancedItemTooltips)) {
-            evt.toolTip.add(EnumChatFormatting.DARK_GRAY + Utils.translate("tooltip.maxstack") + " "
-                    + String.valueOf(evt.itemStack.getMaxStackSize()));
+            evt.toolTip.add(
+                    EnumChatFormatting.DARK_GRAY + Utils.translate("tooltip.maxstack")
+                            + " "
+                            + String.valueOf(evt.itemStack.getMaxStackSize()));
         }
 
-        if (Config.tooltipBurnTime
-                && (!Config.tooltipBurnTimeShift || Utils.isShiftKeyDown())
+        if (Config.tooltipBurnTime && (!Config.tooltipBurnTimeShift || Utils.isShiftKeyDown())
                 && (!Config.tooltipBurnTimeAdvanced || evt.showAdvancedItemTooltips)) {
             int burnTime = TileEntityFurnace.getItemBurnTime(evt.itemStack);
             if (burnTime > 0) {
@@ -48,8 +52,7 @@ public class MCForgeTooltipHandler {
             }
         }
 
-        if (Config.tooltipOreDictNames
-                && (!Config.tooltipOreDictNamesShift || Utils.isShiftKeyDown())
+        if (Config.tooltipOreDictNames && (!Config.tooltipOreDictNamesShift || Utils.isShiftKeyDown())
                 && (!Config.tooltipOreDictNamesAdvanced || evt.showAdvancedItemTooltips)) {
             List<String> names = new ArrayList<String>();
             for (int id : OreDictionary.getOreIDs(evt.itemStack)) {
@@ -67,8 +70,7 @@ public class MCForgeTooltipHandler {
             }
         }
 
-        if (Config.tooltipFluidRegInfo
-                && (!Config.tooltipFluidRegInfoShift || Utils.isShiftKeyDown())
+        if (Config.tooltipFluidRegInfo && (!Config.tooltipFluidRegInfoShift || Utils.isShiftKeyDown())
                 && (!Config.tooltipFluidRegInfoAdvanced || evt.showAdvancedItemTooltips)) {
             List<String> names = new ArrayList<String>();
             if (FluidContainerRegistry.isEmptyContainer(evt.itemStack)) {

@@ -1,14 +1,16 @@
 package tonius.neiintegration;
 
+import java.util.List;
+
+import org.apache.logging.log4j.Logger;
+
+import tonius.neiintegration.config.Config;
+import tonius.neiintegration.mods.Integrations;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.relauncher.Side;
-import java.util.List;
-import org.apache.logging.log4j.Logger;
-import tonius.neiintegration.config.Config;
-import tonius.neiintegration.mods.Integrations;
 
 @Mod(
         modid = NEIIntegration.MODID,

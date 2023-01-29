@@ -1,16 +1,18 @@
 package tonius.neiintegration.config;
 
-import cpw.mods.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import net.minecraftforge.common.config.Configuration;
+
 import tonius.neiintegration.IntegrationBase;
 import tonius.neiintegration.NEIIntegration;
+import cpw.mods.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class Config {
 
@@ -72,145 +74,144 @@ public class Config {
     }
 
     public static void processConfig() {
-        for (Iterator<IntegrationBase> itr = NEIIntegration.integrations.iterator(); itr.hasNext(); ) {
+        for (Iterator<IntegrationBase> itr = NEIIntegration.integrations.iterator(); itr.hasNext();) {
             IntegrationBase integration = itr.next();
             String name = integration.getName();
             boolean enabledByDefault = integration.isEnabledByDefault();
             if (!integration.isValid()) {
                 itr.remove();
             } else if (!config.get(
-                            sectionIntegrations.name,
-                            name,
-                            enabledByDefault,
-                            String.format(
-                                    "Whether to enable %s integration. Disable if this part of the mod causes crashes.",
-                                    name))
-                    .setRequiresMcRestart(true)
-                    .getBoolean(enabledByDefault)) {
-                itr.remove();
-            }
+                    sectionIntegrations.name,
+                    name,
+                    enabledByDefault,
+                    String.format(
+                            "Whether to enable %s integration. Disable if this part of the mod causes crashes.",
+                            name))
+                    .setRequiresMcRestart(true).getBoolean(enabledByDefault)) {
+                        itr.remove();
+                    }
         }
 
-        handlerFluidRegistry = config.get(
+        handlerFluidRegistry = config
+                .get(
                         sectionHandlers.name,
                         "Fluid Registry",
                         Defaults.handlerFluidRegistry,
                         "Shows information about registered fluids when looking them or related items up.")
                 .getBoolean(Defaults.handlerFluidRegistry);
-        handlerOreDictionary = config.get(
+        handlerOreDictionary = config
+                .get(
                         sectionHandlers.name,
                         "Ore Dictionary",
                         Defaults.handlerOreDictionary,
                         "Shows information about items registered in the Ore Dictionary when looking up item usage.")
                 .getBoolean(Defaults.handlerOreDictionary);
 
-        tooltipUnlocalizedName = config.get(
+        tooltipUnlocalizedName = config
+                .get(
                         sectionTooltips.name,
                         "Unlocalized Name",
                         Defaults.tooltipUnlocalizedName,
                         "Show the unlocalized name (example: 'tile.stone') of items.")
                 .getBoolean(Defaults.tooltipUnlocalizedName);
         tooltipUnlocalizedNameShift = config.get(
-                        sectionTooltips.name,
-                        "Unlocalized Name Shift",
-                        Defaults.tooltipUnlocalizedNameShift,
-                        "If unlocalized names are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
+                sectionTooltips.name,
+                "Unlocalized Name Shift",
+                Defaults.tooltipUnlocalizedNameShift,
+                "If unlocalized names are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
                 .getBoolean(Defaults.tooltipUnlocalizedNameShift);
         tooltipUnlocalizedNameAdvanced = config.get(
-                        sectionTooltips.name,
-                        "Unlocalized Name Advanced",
-                        Defaults.tooltipUnlocalizedNameAdvanced,
-                        "If unlocalized names are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
+                sectionTooltips.name,
+                "Unlocalized Name Advanced",
+                Defaults.tooltipUnlocalizedNameAdvanced,
+                "If unlocalized names are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
                 .getBoolean(Defaults.tooltipUnlocalizedNameAdvanced);
-        tooltipInternalName = config.get(
+        tooltipInternalName = config
+                .get(
                         sectionTooltips.name,
                         "Internal Name",
                         Defaults.tooltipInternalName,
                         "Show the internal name (example: 'minecraft:stone') of items.")
                 .getBoolean(Defaults.tooltipInternalName);
         tooltipInternalNameShift = config.get(
-                        sectionTooltips.name,
-                        "Internal Name Shift",
-                        Defaults.tooltipInternalNameShift,
-                        "If internal names are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
+                sectionTooltips.name,
+                "Internal Name Shift",
+                Defaults.tooltipInternalNameShift,
+                "If internal names are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
                 .getBoolean(Defaults.tooltipInternalNameShift);
         tooltipInternalNameAdvanced = config.get(
-                        sectionTooltips.name,
-                        "Internal Name Advanced",
-                        Defaults.tooltipInternalNameAdvanced,
-                        "If internal names are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
+                sectionTooltips.name,
+                "Internal Name Advanced",
+                Defaults.tooltipInternalNameAdvanced,
+                "If internal names are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
                 .getBoolean(Defaults.tooltipInternalNameAdvanced);
         tooltipMaxStack = config.get(
-                        sectionTooltips.name,
-                        "Maximum Stack Size",
-                        Defaults.tooltipMaxStack,
-                        "Show the maximum stack size of items.")
-                .getBoolean(Defaults.tooltipMaxStack);
+                sectionTooltips.name,
+                "Maximum Stack Size",
+                Defaults.tooltipMaxStack,
+                "Show the maximum stack size of items.").getBoolean(Defaults.tooltipMaxStack);
         tooltipMaxStackShift = config.get(
-                        sectionTooltips.name,
-                        "Maximum Stack Size Shift",
-                        Defaults.tooltipMaxStackShift,
-                        "If maximum stack sizes are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
+                sectionTooltips.name,
+                "Maximum Stack Size Shift",
+                Defaults.tooltipMaxStackShift,
+                "If maximum stack sizes are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
                 .getBoolean(Defaults.tooltipMaxStackShift);
         tooltipMaxStackAdvanced = config.get(
-                        sectionTooltips.name,
-                        "Maximum Stack Size Advanced",
-                        Defaults.tooltipMaxStackAdvanced,
-                        "If maximum stack sizes are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
+                sectionTooltips.name,
+                "Maximum Stack Size Advanced",
+                Defaults.tooltipMaxStackAdvanced,
+                "If maximum stack sizes are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
                 .getBoolean(Defaults.tooltipMaxStackAdvanced);
         tooltipBurnTime = config.get(
-                        sectionTooltips.name,
-                        "Burn Time",
-                        Defaults.tooltipBurnTime,
-                        "Show the burn time of items when used as furnace fuel.")
-                .getBoolean(Defaults.tooltipBurnTime);
+                sectionTooltips.name,
+                "Burn Time",
+                Defaults.tooltipBurnTime,
+                "Show the burn time of items when used as furnace fuel.").getBoolean(Defaults.tooltipBurnTime);
         tooltipBurnTimeShift = config.get(
-                        sectionTooltips.name,
-                        "Burn Time Shift",
-                        Defaults.tooltipBurnTimeShift,
-                        "If burn times are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
+                sectionTooltips.name,
+                "Burn Time Shift",
+                Defaults.tooltipBurnTimeShift,
+                "If burn times are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
                 .getBoolean(Defaults.tooltipBurnTimeShift);
         tooltipBurnTimeAdvanced = config.get(
-                        sectionTooltips.name,
-                        "Burn Time Advanced",
-                        Defaults.tooltipBurnTimeAdvanced,
-                        "If burn times are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
+                sectionTooltips.name,
+                "Burn Time Advanced",
+                Defaults.tooltipBurnTimeAdvanced,
+                "If burn times are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
                 .getBoolean(Defaults.tooltipBurnTimeAdvanced);
         tooltipOreDictNames = config.get(
-                        sectionTooltips.name,
-                        "Ore Dictionary Names",
-                        Defaults.tooltipOreDictNames,
-                        "Show the Ore Dictionary names of items.")
-                .getBoolean(Defaults.tooltipOreDictNames);
+                sectionTooltips.name,
+                "Ore Dictionary Names",
+                Defaults.tooltipOreDictNames,
+                "Show the Ore Dictionary names of items.").getBoolean(Defaults.tooltipOreDictNames);
         tooltipOreDictNamesShift = config.get(
-                        sectionTooltips.name,
-                        "Ore Dictionary Names Shift",
-                        Defaults.tooltipOreDictNamesShift,
-                        "If Ore Dictionary names are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
+                sectionTooltips.name,
+                "Ore Dictionary Names Shift",
+                Defaults.tooltipOreDictNamesShift,
+                "If Ore Dictionary names are enabled, they will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
                 .getBoolean(Defaults.tooltipOreDictNamesShift);
         tooltipOreDictNamesAdvanced = config.get(
-                        sectionTooltips.name,
-                        "Ore Dictionary Names Advanced",
-                        Defaults.tooltipOreDictNamesAdvanced,
-                        "If Ore Dictionary names are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
+                sectionTooltips.name,
+                "Ore Dictionary Names Advanced",
+                Defaults.tooltipOreDictNamesAdvanced,
+                "If Ore Dictionary names are enabled, they will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
                 .getBoolean(Defaults.tooltipOreDictNamesAdvanced);
         tooltipFluidRegInfo = config.get(
-                        sectionTooltips.name,
-                        "Fluid Registry Info",
-                        Defaults.tooltipFluidRegInfo,
-                        "Show some fluid info on fluid-related items.")
-                .getBoolean(Defaults.tooltipFluidRegInfo);
+                sectionTooltips.name,
+                "Fluid Registry Info",
+                Defaults.tooltipFluidRegInfo,
+                "Show some fluid info on fluid-related items.").getBoolean(Defaults.tooltipFluidRegInfo);
         tooltipFluidRegInfoShift = config.get(
-                        sectionTooltips.name,
-                        "Fluid Registry Info Shift",
-                        Defaults.tooltipFluidRegInfoShift,
-                        "If fluid registry info is enabled, it will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
+                sectionTooltips.name,
+                "Fluid Registry Info Shift",
+                Defaults.tooltipFluidRegInfoShift,
+                "If fluid registry info is enabled, it will only be shown if the Shift key is held. Effect stacks with Advanced if enabled.")
                 .getBoolean(Defaults.tooltipFluidRegInfoShift);
         tooltipFluidRegInfoAdvanced = config.get(
-                        sectionTooltips.name,
-                        "Fluid Registry Info Advanced",
-                        Defaults.tooltipFluidRegInfoAdvanced,
-                        "If fluid registry info is enabled, it will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
+                sectionTooltips.name,
+                "Fluid Registry Info Advanced",
+                Defaults.tooltipFluidRegInfoAdvanced,
+                "If fluid registry info is enabled, it will only be shown in advanced (F3+H) tooltips. Effect stacks with Shift if enabled.")
                 .getBoolean(Defaults.tooltipFluidRegInfoAdvanced);
     }
 }

@@ -1,15 +1,18 @@
 package tonius.neiintegration.mods.railcraft;
 
+import java.util.List;
+
+import mods.railcraft.api.crafting.IBlastFurnaceRecipe;
+import mods.railcraft.api.crafting.RailcraftCraftingManager;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.item.ItemStack;
+
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
-import java.util.List;
-import mods.railcraft.api.crafting.IBlastFurnaceRecipe;
-import mods.railcraft.api.crafting.RailcraftCraftingManager;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.item.ItemStack;
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 
 public class RecipeHandlerBlastFurnace extends RecipeHandlerBase {
 
@@ -61,7 +64,9 @@ public class RecipeHandlerBlastFurnace extends RecipeHandlerBase {
                 return this.fuel;
             } else if (fuels.size() > 0) {
                 return new PositionedStack(
-                        fuels.get(RecipeHandlerBlastFurnace.this.cycleticks / 48 % fuels.size()), 51, 42);
+                        fuels.get(RecipeHandlerBlastFurnace.this.cycleticks / 48 % fuels.size()),
+                        51,
+                        42);
             }
             return null;
         }

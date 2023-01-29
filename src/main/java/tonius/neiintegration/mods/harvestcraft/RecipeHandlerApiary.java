@@ -1,20 +1,23 @@
 package tonius.neiintegration.mods.harvestcraft;
 
-import codechicken.lib.gui.GuiDraw;
-import codechicken.nei.PositionedStack;
-import com.pam.harvestcraft.GuiPamApiary;
-import com.pam.harvestcraft.ItemRegistry;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
 import tonius.neiintegration.PositionedStackAdv;
 import tonius.neiintegration.RecipeHandlerBase;
 import tonius.neiintegration.Utils;
+import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.PositionedStack;
+
+import com.pam.harvestcraft.GuiPamApiary;
+import com.pam.harvestcraft.ItemRegistry;
 
 public class RecipeHandlerApiary extends RecipeHandlerBase {
 
@@ -36,8 +39,8 @@ public class RecipeHandlerApiary extends RecipeHandlerBase {
 
             int i = 0;
             for (Entry<Item, Float> e : BEE_PRODUCTS.entrySet()) {
-                this.outputs.add(
-                        new PositionedStackAdv(new ItemStack(e.getKey()), 57 + 18 * i, 6).setChance(e.getValue()));
+                this.outputs
+                        .add(new PositionedStackAdv(new ItemStack(e.getKey()), 57 + 18 * i, 6).setChance(e.getValue()));
                 i++;
             }
         }

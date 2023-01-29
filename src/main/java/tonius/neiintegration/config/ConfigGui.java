@@ -1,14 +1,16 @@
 package tonius.neiintegration.config;
 
-import cpw.mods.fml.client.config.GuiConfig;
-import cpw.mods.fml.client.config.IConfigElement;
 import java.util.ArrayList;
 import java.util.List;
+
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.ConfigElement;
+
 import tonius.neiintegration.NEIIntegration;
 import tonius.neiintegration.Utils;
+import cpw.mods.fml.client.config.GuiConfig;
+import cpw.mods.fml.client.config.IConfigElement;
 
 public class ConfigGui extends GuiConfig {
 
@@ -27,8 +29,10 @@ public class ConfigGui extends GuiConfig {
         String prefix = "neiintegration.config.";
 
         for (Section configSection : Config.configSections) {
-            list.add(new ConfigElement<ConfigCategory>(
-                    Config.config.getCategory(configSection.toLowerCase()).setLanguageKey(prefix + configSection.id)));
+            list.add(
+                    new ConfigElement<ConfigCategory>(
+                            Config.config.getCategory(configSection.toLowerCase())
+                                    .setLanguageKey(prefix + configSection.id)));
         }
 
         return list;

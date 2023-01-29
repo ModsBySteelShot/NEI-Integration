@@ -1,16 +1,19 @@
 package tonius.neiintegration.mods.harvestcraft;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.item.ItemStack;
+
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
+
 import com.pam.harvestcraft.GuiPamPresser;
 import com.pam.harvestcraft.PresserRecipes;
-import java.util.Map;
-import java.util.Map.Entry;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.item.ItemStack;
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 
 public class RecipeHandlerPresser extends RecipeHandlerBase {
 

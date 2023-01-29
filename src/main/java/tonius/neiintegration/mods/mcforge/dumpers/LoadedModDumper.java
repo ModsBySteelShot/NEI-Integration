@@ -1,11 +1,12 @@
 package tonius.neiintegration.mods.mcforge.dumpers;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import codechicken.nei.config.DataDumper;
 import cpw.mods.fml.common.FMLModContainer;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
-import java.util.LinkedList;
-import java.util.List;
 
 public class LoadedModDumper extends DataDumper {
 
@@ -15,7 +16,7 @@ public class LoadedModDumper extends DataDumper {
 
     @Override
     public String[] header() {
-        return new String[] {"ID", "Name", "Version", "Custom Container", "Disableable", "Dependencies"};
+        return new String[] { "ID", "Name", "Version", "Custom Container", "Disableable", "Dependencies" };
     }
 
     @Override
@@ -23,14 +24,10 @@ public class LoadedModDumper extends DataDumper {
         List<String[]> list = new LinkedList<String[]>();
 
         for (ModContainer mod : Loader.instance().getModList()) {
-            list.add(new String[] {
-                mod.getModId(),
-                mod.getName(),
-                mod.getVersion(),
-                String.valueOf(!(mod instanceof FMLModContainer)),
-                String.valueOf(mod.canBeDisabled()),
-                mod.getDependencies().toString()
-            });
+            list.add(
+                    new String[] { mod.getModId(), mod.getName(), mod.getVersion(),
+                            String.valueOf(!(mod instanceof FMLModContainer)), String.valueOf(mod.canBeDisabled()),
+                            mod.getDependencies().toString() });
         }
 
         return list;

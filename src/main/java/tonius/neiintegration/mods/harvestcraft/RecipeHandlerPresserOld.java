@@ -1,15 +1,18 @@
 package tonius.neiintegration.mods.harvestcraft;
 
-import codechicken.nei.api.API;
-import com.pam.harvestcraft.GuiPamPresser;
-import com.pam.harvestcraft.PresserRecipes;
 import java.awt.Point;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
+
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
+
 import tonius.neiintegration.Utils;
+import codechicken.nei.api.API;
+
+import com.pam.harvestcraft.GuiPamPresser;
+import com.pam.harvestcraft.PresserRecipes;
 
 public class RecipeHandlerPresserOld extends RecipeHandlerHCBase {
 
@@ -24,8 +27,7 @@ public class RecipeHandlerPresserOld extends RecipeHandlerHCBase {
             Method smelting = PresserRecipes.class.getMethod("smelting");
             getSmeltingList = PresserRecipes.class.getMethod("getSmeltingList");
             presserRecipesInstance = (PresserRecipes) smelting.invoke(null);
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {}
     }
 
     @Override

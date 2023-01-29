@@ -1,13 +1,15 @@
 package tonius.neiintegration.mods.mcforge.dumpers;
 
-import codechicken.nei.config.DataDumper;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+
+import codechicken.nei.config.DataDumper;
 
 public class OreDictionaryDumper extends DataDumper {
 
@@ -17,7 +19,7 @@ public class OreDictionaryDumper extends DataDumper {
 
     @Override
     public String[] header() {
-        return new String[] {"Ore Name", "ItemStack", "Item ID", "Display Name", "Wildcard"};
+        return new String[] { "Ore Name", "ItemStack", "Item ID", "Display Name", "Wildcard" };
     }
 
     @Override
@@ -40,13 +42,9 @@ public class OreDictionaryDumper extends DataDumper {
                         displayName = "-";
                     }
                 }
-                list.add(new String[] {
-                    oreName,
-                    ore.toString(),
-                    Item.itemRegistry.getNameForObject(ore.getItem()),
-                    displayName,
-                    String.valueOf(ore.getItemDamage() == OreDictionary.WILDCARD_VALUE)
-                });
+                list.add(
+                        new String[] { oreName, ore.toString(), Item.itemRegistry.getNameForObject(ore.getItem()),
+                                displayName, String.valueOf(ore.getItemDamage() == OreDictionary.WILDCARD_VALUE) });
             }
         }
 

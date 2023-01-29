@@ -1,15 +1,10 @@
 package tonius.neiintegration;
 
-import codechicken.nei.NEIServerUtils;
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
-import cpw.mods.fml.common.versioning.VersionParser;
-import cpw.mods.fml.common.versioning.VersionRange;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -20,7 +15,15 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.IFluidContainerItem;
+
 import org.lwjgl.input.Keyboard;
+
+import codechicken.nei.NEIServerUtils;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.versioning.DefaultArtifactVersion;
+import cpw.mods.fml.common.versioning.VersionParser;
+import cpw.mods.fml.common.versioning.VersionRange;
 
 public class Utils {
 
@@ -102,8 +105,7 @@ public class Utils {
             return false;
         }
 
-        return block instanceof IFluidBlock
-                || block == Blocks.water
+        return block instanceof IFluidBlock || block == Blocks.water
                 || block == Blocks.flowing_water
                 || block == Blocks.lava
                 || block == Blocks.flowing_lava;

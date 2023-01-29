@@ -2,6 +2,7 @@ package tonius.neiintegration.mods;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import tonius.neiintegration.IntegrationBase;
 import tonius.neiintegration.mods.harvestcraft.HarvestCraftIntegration;
 import tonius.neiintegration.mods.mcforge.MCForgeIntegration;
