@@ -10,12 +10,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.oredict.OreDictionary;
 
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
-import tonius.neiintegration.config.Config;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.GuiRecipe;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
+import tonius.neiintegration.config.Config;
 
 public class RecipeHandlerOreDictionary extends RecipeHandlerBase {
 

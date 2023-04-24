@@ -10,14 +10,14 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import com.pam.harvestcraft.GuiPamApiary;
+import com.pam.harvestcraft.ItemRegistry;
+
+import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.PositionedStack;
 import tonius.neiintegration.PositionedStackAdv;
 import tonius.neiintegration.RecipeHandlerBase;
 import tonius.neiintegration.Utils;
-import codechicken.lib.gui.GuiDraw;
-import codechicken.nei.PositionedStack;
-
-import com.pam.harvestcraft.GuiPamApiary;
-import com.pam.harvestcraft.ItemRegistry;
 
 public class RecipeHandlerApiary extends RecipeHandlerBase {
 

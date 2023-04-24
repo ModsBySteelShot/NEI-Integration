@@ -6,14 +6,14 @@ import java.util.Map.Entry;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
+import com.pam.harvestcraft.GuiPamPresser;
+import com.pam.harvestcraft.PresserRecipes;
+
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
-
-import com.pam.harvestcraft.GuiPamPresser;
-import com.pam.harvestcraft.PresserRecipes;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerPresser extends RecipeHandlerBase {
 

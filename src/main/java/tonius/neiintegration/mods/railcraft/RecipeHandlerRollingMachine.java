@@ -2,9 +2,9 @@ package tonius.neiintegration.mods.railcraft;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 
+import codechicken.lib.gui.GuiDraw;
 import tonius.neiintegration.RecipeHandlerBase;
 import tonius.neiintegration.Utils;
-import codechicken.lib.gui.GuiDraw;
 
 public abstract class RecipeHandlerRollingMachine extends RecipeHandlerBase {
 

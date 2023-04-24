@@ -8,11 +8,11 @@ import java.util.Map;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.Utils;
-import codechicken.nei.api.API;
-
 import com.pam.harvestcraft.GuiPamPresser;
 import com.pam.harvestcraft.PresserRecipes;
+
+import codechicken.nei.api.API;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerPresserOld extends RecipeHandlerHCBase {
 

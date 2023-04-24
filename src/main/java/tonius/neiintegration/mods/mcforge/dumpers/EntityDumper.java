@@ -9,10 +9,9 @@ import java.util.Map.Entry;
 
 import net.minecraft.entity.EntityList;
 
-import codechicken.nei.config.DataDumper;
-
 import com.google.common.collect.ListMultimap;
 
+import codechicken.nei.config.DataDumper;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry.EntityRegistration;

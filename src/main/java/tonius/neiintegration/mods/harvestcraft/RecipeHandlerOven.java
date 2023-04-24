@@ -5,12 +5,12 @@ import java.util.Map;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.Utils;
-import codechicken.nei.api.API;
-
 import com.pam.harvestcraft.GuiOven;
 import com.pam.harvestcraft.ItemRegistry;
 import com.pam.harvestcraft.OvenRecipes;
+
+import codechicken.nei.api.API;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerOven extends RecipeHandlerHCBase {
 

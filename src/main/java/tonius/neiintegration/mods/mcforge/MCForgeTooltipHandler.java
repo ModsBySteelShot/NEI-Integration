@@ -12,9 +12,9 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import tonius.neiintegration.Utils;
 import tonius.neiintegration.config.Config;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class MCForgeTooltipHandler {
 

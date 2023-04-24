@@ -2,17 +2,16 @@ package tonius.neiintegration.mods.railcraft;
 
 import java.util.List;
 
-import mods.railcraft.api.crafting.IBlastFurnaceRecipe;
-import mods.railcraft.api.crafting.RailcraftCraftingManager;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
+import mods.railcraft.api.crafting.IBlastFurnaceRecipe;
+import mods.railcraft.api.crafting.RailcraftCraftingManager;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerBlastFurnace extends RecipeHandlerBase {
 

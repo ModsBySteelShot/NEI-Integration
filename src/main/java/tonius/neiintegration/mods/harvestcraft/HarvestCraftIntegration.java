@@ -1,9 +1,9 @@
 package tonius.neiintegration.mods.harvestcraft;
 
+import com.pam.harvestcraft.PresserRecipes;
+
 import tonius.neiintegration.IntegrationBase;
 import tonius.neiintegration.Utils;
-
-import com.pam.harvestcraft.PresserRecipes;
 
 public class HarvestCraftIntegration extends IntegrationBase {
 

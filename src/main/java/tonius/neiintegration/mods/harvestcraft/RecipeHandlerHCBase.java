@@ -6,10 +6,10 @@ import java.util.Map.Entry;
 
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public abstract class RecipeHandlerHCBase extends RecipeHandlerBase {
 
