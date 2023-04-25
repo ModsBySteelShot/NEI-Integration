@@ -7,12 +7,12 @@ import java.util.List;
 
 import net.minecraftforge.common.config.Configuration;
 
-import tonius.neiintegration.IntegrationBase;
-import tonius.neiintegration.NEIIntegration;
 import cpw.mods.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import tonius.neiintegration.IntegrationBase;
+import tonius.neiintegration.NEIIntegration;
 
 public class Config {
 

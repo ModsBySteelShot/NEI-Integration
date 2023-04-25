@@ -4,20 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
-import mods.railcraft.api.crafting.IRockCrusherRecipe;
-import mods.railcraft.api.crafting.RailcraftCraftingManager;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
 import org.lwjgl.opengl.GL11;
 
-import tonius.neiintegration.PositionedStackAdv;
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
+import mods.railcraft.api.crafting.IRockCrusherRecipe;
+import mods.railcraft.api.crafting.RailcraftCraftingManager;
+import tonius.neiintegration.PositionedStackAdv;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerRockCrusher extends RecipeHandlerBase {
 

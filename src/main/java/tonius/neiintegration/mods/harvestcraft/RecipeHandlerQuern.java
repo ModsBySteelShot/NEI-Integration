@@ -6,11 +6,11 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.Utils;
-import codechicken.nei.api.API;
-
 import com.pam.harvestcraft.GuiQuern;
 import com.pam.harvestcraft.QuernRecipes;
+
+import codechicken.nei.api.API;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerQuern extends RecipeHandlerHCBase {
 

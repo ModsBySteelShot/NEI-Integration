@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import mods.railcraft.api.crafting.RailcraftCraftingManager;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-import tonius.neiintegration.Utils;
 import codechicken.nei.PositionedStack;
+import mods.railcraft.api.crafting.RailcraftCraftingManager;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerRollingMachineShapeless extends RecipeHandlerRollingMachine {
 

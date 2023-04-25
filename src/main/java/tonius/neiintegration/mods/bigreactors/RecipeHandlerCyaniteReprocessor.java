@@ -10,9 +10,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import tonius.neiintegration.PositionedFluidTank;
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
@@ -21,6 +18,9 @@ import erogenousbeef.bigreactors.api.data.OreDictToReactantMapping;
 import erogenousbeef.bigreactors.api.data.ReactantData;
 import erogenousbeef.bigreactors.api.registry.Reactants;
 import erogenousbeef.bigreactors.client.gui.GuiCyaniteReprocessor;
+import tonius.neiintegration.PositionedFluidTank;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerCyaniteReprocessor extends RecipeHandlerBase {
 

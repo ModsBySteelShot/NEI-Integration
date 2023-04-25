@@ -1,14 +1,13 @@
 package tonius.neiintegration.mods.electricalage;
 
-import mods.eln.misc.Recipe;
-import mods.eln.misc.RecipesList;
-
 import net.minecraft.item.ItemStack;
 
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.PositionedStack;
+import mods.eln.misc.Recipe;
+import mods.eln.misc.RecipesList;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public abstract class RecipeHandlerElnBase extends RecipeHandlerBase {
 

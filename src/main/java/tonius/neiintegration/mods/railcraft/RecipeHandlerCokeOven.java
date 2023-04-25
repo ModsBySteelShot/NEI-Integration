@@ -5,20 +5,19 @@ import java.awt.Rectangle;
 import java.util.Collections;
 import java.util.List;
 
-import mods.railcraft.api.crafting.ICokeOvenRecipe;
-import mods.railcraft.api.crafting.RailcraftCraftingManager;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import tonius.neiintegration.PositionedFluidTank;
-import tonius.neiintegration.RecipeHandlerBase;
-import tonius.neiintegration.Utils;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
+import mods.railcraft.api.crafting.ICokeOvenRecipe;
+import mods.railcraft.api.crafting.RailcraftCraftingManager;
+import tonius.neiintegration.PositionedFluidTank;
+import tonius.neiintegration.RecipeHandlerBase;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerCokeOven extends RecipeHandlerBase {
 

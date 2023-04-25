@@ -7,10 +7,10 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigCategory;
 import net.minecraftforge.common.config.ConfigElement;
 
-import tonius.neiintegration.NEIIntegration;
-import tonius.neiintegration.Utils;
 import cpw.mods.fml.client.config.GuiConfig;
 import cpw.mods.fml.client.config.IConfigElement;
+import tonius.neiintegration.NEIIntegration;
+import tonius.neiintegration.Utils;
 
 public class ConfigGui extends GuiConfig {
 

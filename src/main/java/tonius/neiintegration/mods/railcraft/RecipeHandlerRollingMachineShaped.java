@@ -3,16 +3,15 @@ package tonius.neiintegration.mods.railcraft;
 import java.util.ArrayList;
 import java.util.List;
 
-import mods.railcraft.api.crafting.RailcraftCraftingManager;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import tonius.neiintegration.Utils;
 import codechicken.core.ReflectionManager;
 import codechicken.nei.PositionedStack;
+import mods.railcraft.api.crafting.RailcraftCraftingManager;
+import tonius.neiintegration.Utils;
 
 public class RecipeHandlerRollingMachineShaped extends RecipeHandlerRollingMachine {
 
